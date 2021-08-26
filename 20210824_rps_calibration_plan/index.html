@@ -47,7 +47,7 @@
   on the cosmic birefringence angle. <br> <br>
 
   To do so, we have analysed RPS data taken in 2017 and 2018 to derive individual detector polarisation angles.
-  We have developped techniques to constrain these angles with the best possible precision given the data we 
+  We have developed techniques to constrain these angles with the best possible precision given the data we
   currently have, but the precision of these results could be significantly improved by taking new data.
   <br><br>
   
@@ -62,14 +62,113 @@
 <ol type="I">
   <li><a href="#motivation">Motivation</a></li>
     <ol type="i">
-      <li><a href="#previous">Previous data and work</a></li>
-      <li><a href="#syst">Sources of systematic errors</a></li>
-      <li><a href="#issue">Issue with the source orientation measurement </a></li>
+        <li><a href="#SOA">State of the Art</a></li>
+        <li><a href="#previous">Review of 2017/2018 Results</a></li>
+        <li><a href="#syst">Systematic Errors</a></li>
+        <li><a href="#issue">Issue with the source orientation measurement</a></li>
     </ol>
   <li><a href="#plan">Calibration Plan</a></li>
 </ol>
 
-<section><h2 id=motivattion>Motivation</h2>
+<section><h2 id=motivation>Motivation</h2>
+  <h3 id=SOA>State of the Art</h3>
+
+    <figure>
+    <table class="results">
+        <tr>
+            <th>Experiment</th>
+            <th>Frequency (GHz)</th>
+            <th>$\ell$ range</th>
+            <th>$\alpha\pm(\text{stat})\pm(\text{sys})$</th>
+            <th>Calibration Method</th>
+        </tr>
+        <tr>
+            <td rowspan="2">QUaD</td>
+            <td>100</td>
+            <td rowspan="2">200-2000</td>
+            <td>$-1.89\pm2.24\pm0.5$</td>
+            <td rowspan="2">Polarized Source</td>
+        </tr>
+        <tr>
+            <td>150</td>
+            <td>$+0.83\pm0.94(\pm0.5)$</td>
+        </tr>
+        <tr>
+            <td>BOOM03</td>
+            <td>143</td>
+            <td>150-1000</td>
+            <td>$-4.3\pm4.1$</td>
+            <td>pre-flight polarized source</td>
+        </tr>
+        <tr>
+            <td>ACTPol</td>
+            <td>146</td>
+            <td>500-2000</td>
+            <td>$-0.2\pm0.5(-1.2)$</td>
+            <td>"As-Designed"</td>
+        </tr>
+        <tr>
+            <td>WMAP7</td>
+            <td>41+61+95</td>
+            <td>2-800</td>
+            <td>$-1.1\pm1.4(\pm1.5)$</td>
+            <td>pre-launch polarized source / Tau A</td>
+        </tr>
+        <tr>
+            <td>BICEP2</td>
+            <td>150</td>
+            <td>30-300</td>
+            <td>$-1\pm0.2(\pm1.5)$</td>
+            <td>Dielectric Sheet</td>
+        </tr>
+        <tr>
+            <td rowspan="3">BICEP1</td>
+            <td rowspan="3">100+150</td>
+            <td rowspan="3">30-300</td>
+            <td>$-2.77\pm0.86(\pm1.3)$</td>
+            <td>Dielectric Sheet</td>
+        </tr>
+        <tr>
+            <td>$-1.71\pm0.86(\pm1.3)$</td>
+            <td>Polarized Source</td>
+        </tr>
+        <tr>
+            <td>$-1.08\pm0.86(\pm1.3)$</td>
+            <td>"As-Designed"</td>
+        </tr>
+        <tr>
+            <td>POLARBEAR</td>
+            <td>150</td>
+            <td>500-2100</td>
+            <td>$-1.08\pm0.2(\pm0.5)$</td>
+            <td>Tau A</td>
+        </tr>
+        <tr>
+            <td>Planck</td>
+            <td>30-353</td>
+            <td>100-1500</td>
+            <td>$0.35\pm0.05(\pm0.28)$</td>
+            <td>pre-flight source / Tau A</td>
+        </tr>
+        <tr>
+            <td>ACTPol</td>
+            <td>150</td>
+            <td>600-1800</td>
+            <td>$-0.07\pm0.09$</td>
+            <td>metrology+modeling+planet obs.</td>
+        </tr>
+        <tr>
+            <td>Minami & Komatsu</td>
+            <td>30-353</td>
+            <td>100-1500</td>
+            <td>$0.35\pm0.14$</td>
+            <td>Planck Data</td>
+        </tr>
+    </table>
+    </figure>
+    <p>
+    A majority of this table comes from James's SPIE paper, but now includes the Minami & Komatsu result. Note that
+</p>
 
   <h3 id=previous>Previous data and work</h3>
   <p>
@@ -107,7 +206,72 @@
   link google doc with systematics table <br><br>
   demodulation ???
 
- <h3 id=issues>Issue with the source orientation measurement</h3>
+    <h4 id="tiltmeter">Tilt Meter High-F Coupling</h4>
+
+    <p>The readout of the tilt meter is affected by electrical coupling with the 2-phase/50 pole stepper motor in the rotation stage. Whenever the rotation stage is moved, the tilt readout drops to some consistently lower, noiser value. When the stage completes its motion the tilt reading increases, but there is a chance that the tilt will not return to the previous level before the stage was moved and instead settle at some other value. This looks like a discontinuous step in the tilt readout. Thus, the relative tilt from raster-to-raster is unreliable. Further, because the stage was rotated between when the tilt calibration was completed and when the mast was zeroed, we cannot guarantee the the absolute tilt of the RPS either.</p>
+
+    <figure>
+        <img src="figs/tilt_timestream_annotated.png" width="100%">
+        <figcaption>
+
+        </figcaption>
+    </figure>
+
+
+    <p>
+        Note that when the stage not commanded for extended periods of time (during fridge cycles for instance), no stepping is seen and a diurnal fluctuation in tilt (likely from the sun) can be measured.
+    </p>
+
+
+
+
+    <h5>Pol Angle Relative Calibration</h5>
+
+    <p>The coupling amplitude of the stage while in motion is consistent between movements, so by isolating those moments, we can reacquire a measure of the relative angle fluctuation.</p>
+
+    <figure>
+        <img src="figs/tilt_compare_moving_vs_extended_rest.png" width="100%">
+        <figcaption>
+            Plots of the tilt meter during motor movements in RPS schedules (Top) and during FFBM/fridge cycles (Bottom) as a function of time in UTC. That the tilts are reliably on the same level (weather permitting) confirms that the tilt readout during motor movements allows us to reestablish at least a relative angle calibration.
+        </figcaption>
+    </figure>
+
+    <p>At the most pessimistic, we can take the min and max deviation from the moving-stage DC offset and call that the upper limit on the systematic uncertainty of the relative calibration. This comes out to $\pm0.09^o$.</p>
+
+    <p>Ideally, this also allows us to directly subtract the relative angle deviations to further long-timescale scattering during the analysis downstream.</p>
+
+    <h5>Pol Angle Abs Cal</h5>
+    Unfortunately, the amplitude of the DC-offset-while-moving is dependent entirely on the circuitry as it was set up during the RPS campaign, so we can only establish rough upper limits. The maximum recorded offset was $~0.25^o$ and evidence suggests that the DC offset can swing equally in either direction. In the most pessimistic scenario, I calibrated the tilt meter at one extreme and then leveled the mast at the other which gives us an upper limit of $0.5^o$, which easily dominates any other source of systematics.
+
+    <!--
+    Facts:
+    <ul>
+        <li>I calibrated the tilt at some DC offset
+        <li>I levelled at (likely) some other DC offset. What if that was at the opposite end?
+        <li>The offset can either positive or negative WRT moving-source DC offset
+        <li>The max offset seen is ~0.25deg WRT moving-source offset
+    </ul>
+    Assumptions:
+    <ul>
+        <li>DC offset can go equally pos. or neg. WRT moving-source DC offset
+        <li>The DC offset when I levelled compared to when I calibrated was the exact opposite of what I calibrated at.</ul>
+
+    Result:
+    The systematic error on the abs cal of the tilt meter is $0.25+0.25\,=\,0.5^o$
+   -->
+
+    <h5>Aside: Upper limit on mast swaying</h5>
+    <p>If we assume that the diurnal fluctuations in tilt is from heating of the mast's guy wires, then the source position would also be moving as the mast sways throughout the day. Using the same upper limit from the relative calibration ($\pm0.09^o$) we can calculate the apparent change in Azimuth of the source position:</p>
+
+    $$\sigma_{Az} = \tan^{-1}\left(\frac{H_{mast}\tan\left(\sigma_{tilt}\right)}{D_{src}}\right)$$
+
+    <p>Where $H_{mast}$ is the height of the mast from its pivot point (i.e. just the roof of MAPO) and $D_src$ is the distance from BICEP3 to the source, which are both known to be $H_{mast}=12\text{m}$ and $D_{src}=195.5\text{m}$. This gives us $\sigma_{Az} = \pm0.005^o$ which is currently subdominant to other systematics.</p>
+
+
+
+
+
+    <h3 id=issues>Issue with the source orientation measurement</h3>
 
   link James' posting
 
