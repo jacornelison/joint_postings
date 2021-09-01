@@ -339,7 +339,7 @@
 
     <h4 id="tiltmeter">Tilt Meter High-F Coupling</h4>
 
-    <p>The readout of the tilt meter is affected by electrical coupling with the 2-phase/50 pole stepper motor in the rotation stage. Whenever the rotation stage is moved, the tilt readout drops to some consistently lower, noiser value. When the stage completes its motion the tilt reading increases, but there is a chance that the tilt will not return to the previous level before the stage was moved and instead settle at some other value. This looks like a discontinuous step in the tilt readout. Thus, the relative tilt from raster-to-raster is unreliable. Further, because the stage was rotated between when the tilt calibration was completed and when the mast was zeroed, we cannot guarantee the the absolute tilt of the RPS either.</p>
+    <p>During the 2017/2018 calibration campaign, the readout of the tilt meter was affected by electrical coupling of the mast lines with the 2-phase/50 pole stepper motor in the rotation stage. Whenever the rotation stage was moved, the tilt readout dropped to some consistently lower, noiser value. When the stage completed its motion the tilt reading increased, but there was a chance that the tilt did not return to the previous level before the stage was moved and instead would settle at some other value. This looks like a discontinuous step in the tilt readout. Thus, the relative tilt from raster-to-raster is unreliable. Further, because the stage was rotated between when the tilt calibration was completed and when the mast was zeroed to do test movements, we cannot guarantee the the absolute tilt of the RPS either.</p>
 
     <figure>
         <img src="figs/tilt_timestream_annotated.png" width="100%">
@@ -370,6 +370,10 @@
     <h5>Pol Angle Abs Cal</h5>
     Unfortunately, the amplitude of the DC-offset-while-moving is dependent entirely on the circuitry as it was set up during the RPS campaign, so we can only establish rough upper limits. The maximum recorded offset was $~0.25^o$ and evidence suggests that the DC offset can swing equally in either direction. In the most pessimistic scenario, I calibrated the tilt meter at one extreme and then leveled the mast at the other which gives us an upper limit of $0.5^o$, which easily dominates any other source of systematics.
 
+    <h5>Root Cause and Fixes</h5>
+    <p>
+        The high-frequency coupling was ultimately caused by a combination of poor shielding of the tiltmeter from the rotaiton stage and improper grounding of the tilt meter signal wires. We've been able to reproduce this phenomenon in the lab to a similar degree as seen at pole and establish a sufficient shielding/grounding scheme such that any interference is subdominant to the tilt meter noise floor ($O(50\text{nV}$).
+    </p>
     <!--
     Facts:
     <ul>
@@ -409,13 +413,12 @@
 
 <section><h2 id=plan>Calibration Plan</h2>
 
-<h3 id=checks>RPS improvements and cross-checks</h3>
-<h4>Electrical Coupling</h4>
-
+<h3 id=checks>Additional cross-checks</h3>
+    <h4>Electrical Coupling</h4>
 
     <h4>RPS Angle Checker</h4>
     <p>
-        As a redundant check ... in situ measurements of the RPS's polarization angle...
+        We're currently building a simple room-temperature W-band receiver which will serve as a completely independent and redundant check of the RPS's polarization orientation during observations. The plan is to have this receiver placed on the roof of DSL as close as possible to BICEP3 with a line-of-site to the RPS, feeding the receiver output (and possibly tilt/thermometry) to GCP. This data will be analyzed alongside the regular bolometer data with the idea being that the polarization properties of the angle checker (which shall be known <i>a priori</i> to high precision and tracked throughout) would be estimated during every rasterset, allowing us to track the RPS polarization angle throughout all of our observations.
     </p>
 
     <figure>
@@ -435,7 +438,9 @@
             Basic demonstration of a laser diffracting off of a wire grid (spec'd at $15\mu\text{m}$ wire thickness with $80\mu\text{m}$ spacing). The troughs in the large-scale pattern are consistent with the $524\text{nm}$ laser diffracting around the $15\mu\text{m}$ wires (Babinet's principle). The smaller-scale features are consistent with a diffraction grating with $80\mu\text{m}$ spacing. The vertical thickness of the pattern is $\sim5\text{mm}$ at the center which is consistent with the spot size of the laser and quickly settles at $\sim2\text{mm}$ off-axis.
         </figcaption>
     </figure>
-
+    <p>
+        There are also some other systematics to consider such as grid-laser perpendicularity as well as projection effects at the measuring plane which we're still thinking about. The bottom line is that this could be a relatively easy and low-cost cross-check worth doing.
+    </p>
     <p>For reference, I got this laser-through-grid idea from an <a href='https://www.youtube.com/watch?v=7FA274kr5-s&list=PLmXdKmtgaCcFHtNZkjhPWa6oPuPcugHDg&index=50&ab_channel=SeminarKavliIPMU' target="_blank">IPMU talk</a> by Ronaldo D&uuml;nner and his group in Chile who are testing drone-based polarization calibrators.
     </p>
 
