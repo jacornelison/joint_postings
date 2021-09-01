@@ -410,6 +410,36 @@
 <section><h2 id=plan>Calibration Plan</h2>
 
 <h3 id=checks>RPS improvements and cross-checks</h3>
+<h4>Electrical Coupling</h4>
+
+
+    <h4>RPS Angle Checker</h4>
+    <p>
+        As a redundant check ... in situ measurements of the RPS's polarization angle...
+    </p>
+
+    <figure>
+        <img src="figs/angle_checker_prototype_annotated.png" width="70%"/>
+        <figcaption>
+            Diagram of a prototype angle checker. The wire grid is identical to the RPS and calibrated in the same way. The receiver is 'room temperature' and comprises a 25dBi horn, 27dB W-band LNA, and W-band GaAs detector diode. The LNA and diode will be kept thermally stable using a power heater under PID controll via a (probably AD590) thermometer.
+        </figcaption>
+    </figure>
+    <h4>Wire Grid Cross check</h4>
+    <p>
+    We typically calibrate orientation of the wire grid WRT gravity by first using a knee mill and finderscope to orient the wire grid WRT to one of the sides of the rotation stage and then orient the rotation stage WRT to gravity -- using a precision bubble level on that same side of the stage to zero the tiltmeter. As a quick additional cross check, before installing the BSNS onto the stage, we'll shine a laser through the wire grid which will produce a nice flat, $\sim2\text{mm}$-thick diffraction pattern corresponding to the angle of the wire grid. We will then use a water level to level the diffraction pattern WRT to gravity. Using a 5mW 532nm laser, the diffraction pattern is visible at over 5m away, which should allow us to achieve a calibration of <1" precision even with a relatively imprecise water level ($\sigma\sim2\text{mm}$, say).
+    </p>
+
+    <figure>
+        <img src="figs/laser_test_cropped.jpg">
+        <figcaption>
+            Basic demonstration of a laser diffracting off of a wire grid (spec'd at $15\mu\text{m}$ wire thickness with $80\mu\text{m}$ spacing). The troughs in the large-scale pattern are consistent with the $524\text{nm}$ laser diffracting around the $15\mu\text{m}$ wires (Babinet's principle). The smaller-scale features are consistent with a diffraction grating with $80\mu\text{m}$ spacing. The vertical thickness of the pattern is $\sim5\text{mm}$ at the center which is consistent with the spot size of the laser and quickly settles at $\sim2\text{mm}$ off-axis.
+        </figcaption>
+    </figure>
+
+    <p>For reference, I got this laser-through-grid idea from an <a href='https://www.youtube.com/watch?v=7FA274kr5-s&list=PLmXdKmtgaCcFHtNZkjhPWa6oPuPcugHDg&index=50&ab_channel=SeminarKavliIPMU' target="_blank">IPMU talk</a> by Ronaldo D&uuml;nner and his group in Chile who are testing drone-based polarization calibrators.
+    </p>
+
+
 
 <h3 id=schedule>Calibration schedule</h3>
 
