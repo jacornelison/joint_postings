@@ -63,14 +63,9 @@
   <li><a href="#motivation">Motivation</a></li>
     <ol type="i">
 
-      <li><a href="#previous">Previous data and work</a></li>
+      <li><a href="#SOA">State of the Art</a></li>
+      <li><a href="#previous">Review of 2017/2018 Results</a></li>
       <li><a href="#syst">Systematic errors</a></li>
-      <li><a href="#source">Source orientation measurement </a></li>
-
-        <li><a href="#SOA">State of the Art</a></li>
-        <li><a href="#previous">Review of 2017/2018 Results</a></li>
-        <li><a href="#syst">Systematic Errors</a></li>
-        <li><a href="#issue">Issue with the source orientation measurement</a></li>
 
     </ol>
   <li><a href="#plan">Calibration Plan</a></li>
@@ -180,7 +175,7 @@
     A majority of this table comes from James's SPIE paper, but now includes the Minami & Komatsu result. Note that
 </p>
 
-  <h3 id=previous>Previous data and work</h3>
+  <h3 id=previous>Review of 2017/2018 Result</h3>
   <p>
     RPS measurements for BICEP3 were taken in January 2017 and 2018, with the mirror installed. To derive individual 
     detector polarisation angles, it is crucial to first build a reliable pointing model that includes the mirror,
@@ -220,8 +215,20 @@
         Mirror and source parameters in 2018 - II: Results with updated pointing model & Residuals</a></li>
     </ul>
 
+  In particular, we estimated the following parameters for the mirror and source:
+
+  <ul>
+    <li> mirror height = 1.4592m </li>
+    <li> mirror tilt = 44.7743 deg</li>
+    <li> mirror roll = 0.1054 deg</li>
+    <li> source height = 8.9717m </li>
+    <li> source distance = 195.5 m </li>
+    <li> source azimuth = -177.5938 deg </li>
+  </ul>
+
   Once source and mirror positions are established, we can proceed with the rest of the analysis, using the RPS modulation curve to determine
-  individual detectors polarisation angles.
+  individual detectors polarisation angles. However, these results are subjected to various systematic effects, that we try to understand so 
+  that we can estimate their impact, and minimise them for future observations.
   </p>
 
 
@@ -238,13 +245,96 @@
   </p>
 
   <h4>Demodulation</h4>
-  <p>When fitting for beam parameters in raw mount coordinates, we noticed residuals at the level of 5-10%, as shown for example
-    in Figure 2.1 in <a href= http://bicep.rc.fas.harvard.edu/cverges/20210105_pa_reconstruction>this posting</a>. We tentatively
+  <p>When fitting for beam parameters in raw mount coordinates, we noticed residuals at the level of 5-10%, as shown below. We tentatively
     identified it as amplitide dependent noise coming from the demodulation routine, something that also been identified in beam
     measurement campaigns.<br><br>
 
+    <figure>
+      <img src="figs/res_channel_2385.png" width="100%">
+      <figcaption>
+        Amplitude-dependent residuals seen after Gaussian beam fit on RPS observations.
+      </figcaption>
+  </figure>
+  </p>
 
-    <i>(Clara) are we sure about that? is there anything we can/should/plan to do about that? if not, should we even mention it here?</i>
+
+  <h4>Residuals in reconstructed RPS beam centers</h4>
+
+  <p>
+  As said previously, our method to estimate the source and mirror positions relies on matching beam centers derived from RPS
+  measurements using the BMPM, with the CMB derived beam centers (see Figure 1.1). Ideally, the two sets of beam centers should be 
+  identical after estimating the optimal source and mirror parameters. However, we observe a pattern of residuals that we try to 
+  characterise and understand, as shown in Figure 1.4 below, and detailed in <a href=http://bicep.rc.fas.harvard.edu/cverges/20210604_pa_reconstruction_2/>
+  this posting</a>. <br><br>
+
+  <figure>
+    <img src="figs/residuals_10times_all_dk_roll_tilt_az.png" width="100%">
+    <figcaption>
+      Typical residual pattern (x10) between RPS-derived and CMB-derived beam centers, in focal plane coordinates.
+    </figcaption>
+</figure>
+
+</p>
+
+  <h5>Deck-dependent residuals</h5>
+  <p> 
+    RPS data and CMB data are taken at different dk angles (0/45/90/135 vs 23/68/203/248), and CMB data is taken without 
+    the mirror on (i.e. the pointing model is different), and at a different time of the year. While this shouldn't have any impact,
+    we might suffer from various systematic effects, due to e.g the mirror, or gravitational flexture at different dk angles (as hinted 
+    by Justin in his <a href=http://bicep.rc.fas.harvard.edu/bkcmb/analysis_logbook/analysis/20181207_B2018_beamcen/>CMB beam centers 
+    posting</a>.
+
+    In particular, we observe dk dependent residuals and show that:
+
+    <ul>
+      <li>RPS data at different dk angles yield to different mirror roll angle (up to ~0.03 deg difference)</li>
+      <li>For a given RPS data set at one dk angle, using CMB derived beam centers at different dk angles 
+        as reference also yields to different mirror roll angle (up to ~0.04 deg difference)</li>
+    </ul>
+
+    Although these differences look small, they still represent 30%-40% differences given the expected mirror roll parameter (which
+    is about 0.10 deg). However, based on systematic errors propagation. we don't expect these errors on the mirror roll to have a 
+    very significant impact on the final results. Nevertheless, we propose to modify the RPS calibration schedule to try and avoid this 
+    source of residuals.
+  </p>
+
+  <h5>RPS orientation</h5>
+  <p>
+    In previous calibration campaigns, the RPS was rotating from -180deg to 180 with respect to gravity, whatever
+    the deck angle of the instrument. This setup is convenient because it allows to maximise detector response
+    for dk 0/90, however for dk 45/135 detectors don't reach their peak response at any point in the RPS modulation 
+    curve. This can lead to uncertainties in the determination of the beam centers, that contributes to dk-dependent
+    residuals that we see. We therefore propose to tilt the RPS with respect to the dk angle and not with respect to
+    gravity, so that the modulation curve can be effectively maximal for each dk angle. However, this could induce a
+    new systematic contribution since the RPS orientation would be different for each schedule - we would therefore 
+    need to have an estimation of this effect.
+  </p>
+
+  <p> To address these sources of residuals, we propose to adapt the dk angles used for RPS observation as well as the RPS
+    orientation, as detailled in the <a href=#schedule>calibration schedule</a>.
+  </p>
+
+  <h5>Mirror-related residuals?</h5>
+
+  <p>
+    We also investigated the hypothesis that the residuals could arise from mirror systematics, such as small deformations
+    in the mirror. If this was case, we should have residuals that are the same for Moon and RPS observations in 2017 
+    (in 2018 we don't have Moon observations to compare to), or residuals that corresponds to a specific position on the mirror
+    once the dk angle rotation is corrected. However, we couldn't detect any mirror-related pattern in dk dependent residuals, 
+    as shown for example in Figure 1.5 below.
+
+    <figure>
+      <tr>
+          <td><img src="figs/residuals_10times_mirror.png"/></td>
+      </tr>
+      <figcaption>
+          Dk-dependent residuals (x10) projected in mirror coordinates. 
+      </figcaption>
+  </figure>
+
+  We have also estimated the mirror differential polarisation to be very small and not a significant source of systematic
+  error, as detailed iin <a href=http://bicep.rc.fas.harvard.edu/jcornelison/postings/2019mmdd_rps_reflection_polarization/>this posting</a>.
+
   </p>
 
     <h4 id="tiltmeter">Tilt Meter High-F Coupling</h4>
@@ -258,13 +348,9 @@
         </figcaption>
     </figure>
 
-
     <p>
         Note that when the stage not commanded for extended periods of time (during fridge cycles for instance), no stepping is seen and a diurnal fluctuation in tilt (likely from the sun) can be measured.
     </p>
-
-
-
 
     <h5>Pol Angle Relative Calibration</h5>
 
@@ -308,41 +394,6 @@
 
     <p>Where $H_{mast}$ is the height of the mast from its pivot point (i.e. just the roof of MAPO) and $D_src$ is the distance from BICEP3 to the source, which are both known to be $H_{mast}=12\text{m}$ and $D_{src}=195.5\text{m}$. This gives us $\sigma_{Az} = \pm0.005^o$ which is currently subdominant to other systematics.</p>
 
-
-
-
-
-    <h3 id=issues>Issue with the source orientation measurement</h3>
-
-
-  <h4>Residuals in reconstructed RPS beam centers</h4>
-  <p> As said previously, our method to estimate the source and mirror positions relies on matching beam centers derived from RPS
-    measurements using the BMPM, with the CMB derived beam centers (see Figure 1.1). Ideally, the two sets of beam centers should be 
-    identical after estimating the optimal source and mirror parameters. However, we observe a pattern of residuals that we try to 
-    characterise and understand, as detailed in <a href=http://bicep.rc.fas.harvard.edu/cverges/20210604_pa_reconstruction_2/>
-    this posting</a>. <br><br>
-
-    RPS data and CMB data are taken at different dk angles (0/45/90/135 vs 23/68/203/248), and CMB data is taken without 
-    the mirror on (i.e. the pointing model is different), and at a different time of the year. While this shouldn't have any impact,
-    we might suffer from various systematic effects, due to e.g the mirror, or gravitational flexture at different dk angles (as hinted 
-    by Justin in his <a href=http://bicep.rc.fas.harvard.edu/bkcmb/analysis_logbook/analysis/20181207_B2018_beamcen/>CMB beam centers 
-    posting</a>.
-
-    In particular, we observe dk dependent residuals and show that:
-
-    <ul>
-      <li>RPS data at different dk angles yield to different mirror roll angle (up to ~0.03 deg difference)</li>
-      <li>For a given RPS data set at one dk angle, using CMB derived beam centers at different dk angles 
-        as reference also yields to different mirror roll angle (up to ~0.04 deg difference)</li>
-    </ul>
-
-    Although these differences look small, they still represent 30%-40% differences given the expected mirror roll parameter (which
-    is about 0.10 deg). However, based on systematic errors propagation. we don't expect these errors on the mirror roll to have a 
-    very significant impact on the final results. Nevertheless, we propose to modify the RPS calibration schedule to try and avoid this 
-    source of residuals (see <a href=#schedule>calibration schedule </a> below.)
-
-  </p>
-
   <h4>Measurement repeatability</h4>
 
   <p> In 2018, two RPS data sets were taken at dk 45 - a complete and a partial one. Using only detectors that have measurements
@@ -353,18 +404,6 @@
     on the final measurement, but we still need to have an estimation of measurement repeatability so that we can correctly propagate
     the associated errors. The calibration schedule that we propose below takes into account these constraints.
   </p>
-
- <h3 id=source>Source orientation measurement</h3>
-  <p> The main remaining source of systematic errors that we have identified is the calibration of the tiltmeter. The RPS tiltmeter 
-    allows us to know the orientation of the polarised source, and is thus crucial to properly reconstruct detector angles from the 
-    RPS modulation curve. However, during the 2018 observing season, the monitoring of the source tilt season is contaminated by 
-    electrical coupling in the tiltmeter readout. We investigated this issue in details, as summarised 
-    <a href=http://bicep.rc.fas.harvard.edu/jcornelison/postings/rps_scratch/>here</a>. We also found that the PID control for the 
-    source temperature suffered from readout coupling issues. <br><br>
-
-    To avoid such problems this season, we propose a number of software and hardware fixes in the calibration procedure, as detailed 
-    in the <a href="#checks">next section</a>.
-  </p> 
 
 </section>
 
@@ -403,6 +442,14 @@
 
 
 <h3 id=schedule>Calibration schedule</h3>
+
+<p> We propose <a href=https://docs.google.com/spreadsheets/d/10NAoifVl0Y2dxdlx_JSGmlcqxI2pSLf0GLOCBm8ZmdA/edit?usp=sharing>
+  a calibration schedule</a> for the austral summer 2021-2022, with an observing strategy 
+  that takes into accounts the systematic effects we have identified. We have added a number of new and
+  (sometimes) redundant observations, in order to minimise systematic effects and maximise data quality.
+  We have ranked all the tasks we propose by priority (necessary, medium and low), so that this plan
+  can be adapted/shortened depending on available time.
+</p>
 
 </section>
 
