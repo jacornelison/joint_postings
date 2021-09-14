@@ -244,10 +244,10 @@
     could be improved if we take new data.
   </p>
 
-  <h4>Demodulation</h4>
-  <p>When fitting for beam parameters in raw mount coordinates, we noticed residuals at the level of 5-10%, as shown below. We tentatively
-    identified it as amplitide dependent noise coming from the demodulation routine, something that also been identified in beam
-    measurement campaigns.<br><br>
+  <h4>Beam fit residuals</h4>
+  <p>When fitting for beam parameters in raw mount coordinates, we noticed residuals at the level of 5-10%, as shown below. 
+    We tentatively identified it as amplitide dependent noise coming from the demodulation routine, something that also been 
+    identified in FFBM measurement campaigns.<br><br>
 
     <figure>
       <img src="figs/res_channel_2385.png" width="100%">
@@ -255,6 +255,18 @@
         Amplitude-dependent residuals seen after Gaussian beam fit on RPS observations.
       </figcaption>
   </figure>
+
+  While we are not sure this effect actually comes from demodulation, we know that slower chop rates lead to less noise in 
+  demodulated data, because there are more sample to average over for a given chop cycle. However, a higher chop rate allows 
+  for more samples of the beam per unit time, and a better background rejection. In 2017, data was taken with a chop rate 
+  of 10 GHz and 20 GHz, while in 2018 it was only taken at 20Hz. We are currently comparing data at 10Hz and 20Hz taken in 
+  2017, to see if we can learn learn anything from having different chop rates, in particular if the lower chop rates effectively 
+  reduces the post-beam fit residuals. <br><br>
+
+  In any case, as we don't have a lot of good quality data from 2017 and therefore probably can't learn much from that, we plan 
+  to take data at various chop rates (likely 10-15-20Hz) for this campaign so that we can better estimate and quantify systematics
+  that are associated with various chop rates.
+
   </p>
 
 
