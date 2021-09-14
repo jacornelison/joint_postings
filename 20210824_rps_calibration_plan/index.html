@@ -170,9 +170,12 @@
             <td>Planck Data</td>
         </tr>
     </table>
+        <figcaption>
+            Uniform cosmic birefringence constraints from CMB experiments ordered chronologically by publication.
+        </figcaption>
     </figure>
     <p>
-    A majority of this table comes from James's SPIE paper, but now includes the Minami & Komatsu result. Note that
+    A majority of this table comes from James's SPIE paper <a href="JAC2020"></a>, but now includes the Minami & Komatsu result <a href="Minami2020"></a>.
 </p>
 
   <h3 id=previous>Review of 2017/2018 Result</h3>
@@ -186,7 +189,7 @@
     To determine the position of the mirror and the source, the best way to proceed is to first observe the Moon with
     the mirror on, allowing to determine first the mirror position, and then the source. However, no Moon observations
     with the mirror on were taken in 2017. It is still possible to determine the source and mirror position by using data taken 
-    in 2017, but the derived positions suffer from higher uncertainties. In his <a href=https://arxiv.org/pdf/2012.05934.pdf>SPIE paper</a>, 
+    in 2017, but the derived positions suffer from higher uncertainties. In his SPIE paper <a href="JAC2020"></a>,
     James presented the results he obtained using RPS data taken in January 2018 - polarisation angles and efficiency for
     800 detector pairs. <br><br>
 
@@ -429,7 +432,7 @@
     </figure>
     <h4>Wire Grid Cross check</h4>
     <p>
-    We typically calibrate orientation of the wire grid WRT gravity by first using a knee mill and finderscope to orient the wire grid WRT to one of the sides of the rotation stage and then orient the rotation stage WRT to gravity -- using a precision bubble level on that same side of the stage to zero the tiltmeter. As a quick additional cross check, before installing the BSNS onto the stage, we'll shine a laser through the wire grid which will produce a nice flat, $\sim2\text{mm}$-thick diffraction pattern corresponding to the angle of the wire grid. We will then use a water level to level the diffraction pattern WRT to gravity. Using a 5mW 532nm laser, the diffraction pattern is visible at over 5m away, which should allow us to achieve a calibration of <1" precision even with a relatively imprecise water level ($\sigma\sim2\text{mm}$, say).
+    We typically calibrate orientation of the wire grid WRT gravity by first using a knee mill and finderscope to orient the wire grid WRT to one of the sides of the rotation stage and then orient the rotation stage WRT to gravity -- using a precision bubble level on that same side of the stage to zero the tiltmeter. As a quick additional cross check, before installing the BSNS onto the stage, we'll shine a laser through the wire grid which will produce a nice flat, $\sim2\text{mm}$-thick diffraction pattern corresponding to the angle of the wire grid. We will then use a level to level the diffraction pattern WRT to gravity and the commaned angle of the rotation stage is the orientation of the wire grid (+90&deg;).
     </p>
 
     <figure>
@@ -438,10 +441,21 @@
             Basic demonstration of a laser diffracting off of a wire grid (spec'd at $15\mu\text{m}$ wire thickness with $80\mu\text{m}$ spacing). The troughs in the large-scale pattern are consistent with the $524\text{nm}$ laser diffracting around the $15\mu\text{m}$ wires (Babinet's principle). The smaller-scale features are consistent with a diffraction grating with $80\mu\text{m}$ spacing. The vertical thickness of the pattern is $\sim5\text{mm}$ at the center which is consistent with the spot size of the laser and quickly settles at $\sim2\text{mm}$ off-axis.
         </figcaption>
     </figure>
+
     <p>
-        There are also some other systematics to consider such as grid-laser perpendicularity as well as projection effects at the measuring plane which we're still thinking about. The bottom line is that this could be a relatively easy and low-cost cross-check worth doing.
+        Using this method in the lab, we've been able to get derive the grid horizontal at $\sigma\sim0.1^o$ using a machinist level and height gauge (see figure below). With a little practice and perhaps a longer level, the precision could be comparable or even greater than what we can typically achieve using our mill-calibration method. There are also some other systematics to consider such as grid-laser perpendicularity as well as projection effects at the measuring plane which we're still thinking about. Either way, we've proven that this serves as a quick and easy cross check.
     </p>
-    <p>For reference, I got this laser-through-grid idea from an <a href='https://www.youtube.com/watch?v=7FA274kr5-s&list=PLmXdKmtgaCcFHtNZkjhPWa6oPuPcugHDg&index=50&ab_channel=SeminarKavliIPMU' target="_blank">IPMU talk</a> by Ronaldo D&uuml;nner and his group in Chile who are testing drone-based polarization calibrators.
+
+    <figure>
+        <img src="figs/laser_cal_harvard.jpg">
+        <figcaption>
+            Functional demonstration of a laser diffraction calibration. We level the RPS using a bubble level and then place the same level in front of the diffraction pattern. We then measure the distance of the bottom of the level to the bottom of the diffraction pattern at each end of the level. When the distances are equal, we know that the wire grid is perpendicular to the level. Our current best measurement repeatability is $\sigma\sim0.1^o$ after an hour or so of tinkering.
+        </figcaption>
+    </figure>
+    <p>
+
+    </p>
+    <p>For reference, I got this laser-through-grid idea from Ronaldo D&uuml;nner and his group in Chile who are testing drone-based polarization calibrators <a href="Dunner2020" target="_blank">IPMU talk</a>.
     </p>
 
 
@@ -459,5 +473,133 @@
 </section>
 
 <hr>
+
+   <section class="appendix">
+<h3>References</h3>
+
+<p id="references"></p>
+
+<script type="text/javascript">
+
+    // This my way of making shorthand links.
+    // We'll make a couple arrays with the 'tag' and href information
+    // and then look through each anchor element for the specified tag.
+    // The anchors should then just look like: <a href="tagname"></a>
+    // and the script will automatically fill in the hyperlings and text.
+
+    var posting_dir = window.location.href; // What's the current url?
+
+    var bkurl = "bicep.rc.fas.harvard.edu";
+    var spurl = "bicep.usap.gov";
+
+    // These are the possible places to find postings
+    // The strings are for if you post your posting in that directory.
+    var sitemap = {
+        jcornelison: "../../../",   // /jcornelison/postings/
+        bkcmb : "../../../../",     // /bkcmb/analysis_logbook/analysis/
+        bicep3: "../../../",        //
+        bicep_array: "../../../",   //
+        bicep2: "",                 // We shouldn't be posting in these, but still have postings.
+        keck  : "",                 // keck/analysis_logbook/analysis/
+        spuder: "",                 // ~spuder/hieno_analysis_logboo
+        bicep1: "",                 // ~bicep1/analysis_logbook_north/
+    };
+    // Logbook Site map:
+    // personal:www/jcornelison/postings/
+    // bkcmb:   www/bkcmb/analysis_logbook/analysis/
+    // keck:    www/keck/analysis_logbook/analysis/
+    // BICEP3:  www/bicep3/analysis_logbook/
+    // BA:      www/bicep_array/analysis_logbook/
+    // We shouldn't be posting in these, but still have postings.
+    // bicep2:
+    // keck:    www/keck/analysis_logbook/analysis/
+    // spuder:  www/~spuder/hieno_analysis_logbook/
+    // bicep1:  www/~bicep1/analysis_logbook_north/
+
+    // Shorthand tags
+    var tags = [
+        "Minami2020",
+        "Dunner2020",
+        "JAC2020",
+    ];
+
+    // Links
+    // Truncate the link down to the www directory in which is lies if you can.
+    var hrefs = [
+        "https://arxiv.org/pdf/2011.11254.pdf",
+        "https://www.youtube.com/watch?v=7FA274kr5-s&list=PLmXdKmtgaCcFHtNZkjhPWa6oPuPcugHDg&index=50&ab_channel=SeminarKavliIPMU",
+        "https://arxiv.org/pdf/2012.05934.pdf",
+    ];
+
+
+    // Posting titles
+    var desc = [
+        "New Extraction of the Cosmic Birefringence from the Planck 2018 Polarization Data",
+        "Drone-Based Polarization Calibration Source for MM-Wave Telescopes",
+        "Polarization Calibration of the BICEP3 CMB polarimeter at the South Pole",
+    ];
+    // Debug
+    var posty = document.getElementById("testp");
+
+
+    var preface = "";
+    var keys = Object.keys(sitemap);
+    // If we're not at pole or bicep, just post the full URL
+    // If we are, go back to the www directory.
+    if (posting_dir.match(new RegExp(bkurl))!=bkurl &
+        posting_dir.match(new RegExp(spurl))!=spurl){
+        preface = "http://" + bkurl+"/";
+    }
+    else {
+        for (key in keys){
+            if (posting_dir.match(new RegExp("/"+keys[key]+"/"))=="/"+keys[key]+"/"){
+                preface = sitemap[keys[key]];
+            };
+        };
+
+    };
+
+    // Add the prefixes we can.
+    // Only add prefixes to directories in the sitemap so we don't break
+    // external references.
+    for (ref in hrefs) {
+        for (key in keys) {
+
+            // If there's a match, at the prefix and move on.
+            if(hrefs[ref].match(new RegExp(keys[key] + "/"))==keys[key]+"/"){
+                hrefs[ref] = preface+hrefs[ref];
+                break;
+            }
+        };
+    };
+
+    // posty.innerHTML = preface;
+
+    // Make a list of references
+    var post = document.getElementById("references");
+    var msg = "<table>";
+    for (var tag in tags){
+        msg = msg + "<tr><td><a href="+tags[tag]+"></a></td><td> - </td><td>"+desc[tag]+"</td>";
+    };
+    msg = msg+ "</table>";
+    post.innerHTML = msg;
+
+    // Look through all the hyperlinks and insert the proper links to the postings
+    var links = document.getElementsByTagName("A");
+    for (var link in links){
+        for (var tag in tags){
+            if (links[link].href.endsWith(tags[tag])){
+                links[link].text = "("+tags[tag]+")";
+                links[link].href = hrefs[tag];
+                links[link].target = "_blank";
+            }
+        }
+    }
+
+</script>
+   </section>
+<hr>
+
+
 
 </body>
