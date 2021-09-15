@@ -42,21 +42,6 @@
     summer, building on the experience we have gained - both in terms of field calibration and data analysis - to optimise
     the measurement campaign and make sure we have the best possible measurements.
 <br><br>
-    RPS (Rotating Polarised Source) observations are used to characterise individual detector properties,
-  namely efficiency and polarisation angle. The knowledge of the exact polarisation angle of
-  each detector is not necessary for standard B-modes analysis. However, we need to know it with a very 
-  high precision if we want to be able to constraint isotropic cosmic birefringence, since the global
-  polarisation angle of the instrument is degenerate with the cosmic birefrigence angle. While some 
-  methods have been proposed where the measurement of the instrument polarisation angle is not needed, 
-  we believe that the precise characterisation of individual detector polarisation angles
-  to obtain the global instrument polarisation angle is the best way towards measuring or improving upper limits 
-  on the cosmic birefringence angle.
-    <br><br>
-
-  To do so, we have analysed RPS data taken in 2017 and 2018 to derive individual detector polarisation angles.
-  We have developed techniques to constrain these angles with the best possible precision given the data we
-  currently have, but the precision of these results could be significantly improved by taking new data.
-  <br><br>
 
 </p>
 
@@ -64,18 +49,25 @@
 
 <h3>Table of Contents</h3>
 <ol type="1">
+  <li><a href="#intro">Introduction</a></li>
+
   <li><a href="#motivation">Motivation</a></li>
     <ol type="1">
 
       <li><a href="#SOA">State of the Art</a></li>
-      <li><a href="#previous">Review of 2017/2018 Results</a></li>
       <li><a href="#syst">Systematic errors</a></li>
+        <ol>
+            <li><a href="#tiltmeter">Tilt Meter High-F Coupling</a>  </li>
+            <li><a href="#beamfits">Beam Fit Residuals</a> </li>
+            <li><a href="#residuals">Residuals in Reconstructed RPS Beam Centers</a> </li>
+            <li><a href="#repeat">Measurement Repeatability</a> </li>
+        </ol>
 
     </ol>
   <li><a href="#plan">Calibration Plan</a></li>
     <ol type ="1">
-      <li><a href="#checks">RPS improvements and cross-checks</a></li>
-      <li><a href="#schedule">Calibration schedule</a></li>
+        <li><a href="#schedule">Calibration schedule</a></li>
+        <li><a href="#checks">RPS improvements and cross-checks</a></li>
     </ol>
 </ol>
 <ol type="A">
@@ -84,6 +76,27 @@
         <li><a href="#refs">References</a></li>
     </ol>
 </ol>
+
+<section><h2 id="intro">Introduction</h2>
+
+    RPS (Rotating Polarised Source) observations are used to characterise individual detector properties,
+    namely efficiency and polarisation angle. The knowledge of the exact polarisation angle of
+    each detector is not necessary for standard B-modes analysis. However, we need to know it with a very
+    high precision if we want to be able to constraint isotropic cosmic birefringence, since the global
+    polarisation angle of the instrument is degenerate with the cosmic birefrigence angle. While some
+    methods have been proposed where the measurement of the instrument polarisation angle is not needed,
+    we believe that the precise characterisation of individual detector polarisation angles
+    to obtain the global instrument polarisation angle is the best way towards measuring or improving upper limits
+    on the cosmic birefringence angle.
+    <br><br>
+
+    To do so, we have analysed RPS data taken in 2017 and 2018 to derive individual detector polarisation angles.
+    We have developed techniques to constrain these angles with the best possible precision given the data we
+    currently have, but the precision of these results could be significantly improved by taking new data.
+    <br><br>
+
+
+</section>
 
 <section><h2 id=motivation>Motivation</h2>
   <h3 id=SOA>State of the Art</h3>
@@ -191,64 +204,6 @@
         When we made our RPS observations in early 2018, we set a total precision goal of the measured per-pair polarization angle, $\phi_{pair}$, of $\sigma_\phi<0.1^o$ which, compared to the most recent reported values from other experiments, is still competitive. In the 2020 SPIE paper, we reported a total relative angle of $\sigma_{\phi_{pair}}$ equivalent to $0.083^o$, but we were still working out the systematics of the absolute angle at the time. As we'll show below, our current best on the absolute value is about an order of magnitude greater, but we believe we can achieve the $\sigma_{\phi_{pair}}<0.1^o$ in absolute terms by applying our lessons-learned to a new dataset which will be taken this 2021/2022 austral summer.
     </p>
 
-
-  <h3 id=previous>Review of 2017/2018 Result</h3>
-  <p>
-    RPS measurements for BICEP3 were taken in January 2017 and 2018, with the mirror installed. To derive individual 
-    detector polarisation angles, it is crucial to first build a reliable pointing model that includes the mirror,
-    and to know the source and mirror position with respect to the telescope with a very good precision. While working
-    on RPS data analysis, we made some changes in the Beam Map Pointing Model (BMPM) we use to analyse RPS data, as 
-    presented in <a href="JCV2021"></a>. <br><br>
-
-    To determine the position of the mirror and the source, the best way to proceed is to first observe the Moon with
-    the mirror on, allowing to determine first the mirror position, and then the source. However, no Moon observations
-    with the mirror on were taken in 2017. It is still possible to determine the source and mirror position by using data taken 
-    in 2017, but the derived positions suffer from higher uncertainties. In our SPIE paper <a href="JAC2020"></a>,
-    we presented the results he obtained using RPS data taken in January 2018 - polarisation angles and efficiency for
-    800 detector pairs. <br><br>
-
-    We have since then re-analysed RPS data with a different method to estimate source and mirror positions.
-    In this updated method, we estimate beam parameters in raw mount coordinates (before applying any pointing model), and then
-    estimate source and mirror positions. To do so, we minimise the difference between beam coordinates derived from RPS observation 
-    using the (updated) BMPM, and "canonical" beam parameters from CMB observations. This analysis is summarised in the simplified flow 
-    chart in the figure below.
-
-    <figure>
-      <img src="figs/rps_data_flow_chart.png"/>
-      <figcaption>
-          Simplified analysis flow chart to get source and mirror parameters from RPS data.
-      </figcaption>
-  </figure>
-    
-    
-    This work is described in various postings:
-
-    <ul>
-      <li> <a href=http://bicep.rc.fas.harvard.edu/jcornelison/postings/2021mmdd_rps_moon_reanalysis/>
-        Mirror parameters in 2017 and 2018</a></li>
-      <li><a href= http://bicep.rc.fas.harvard.edu/cverges/20210105_pa_reconstruction/>
-        Mirror and source parameters in 2018 - I: Methods and preliminary results</a></li>
-      <li> <a href=http://bicep.rc.fas.harvard.edu/cverges/20210604_pa_reconstruction_2/>
-        Mirror and source parameters in 2018 - II: Results with updated pointing model & Residuals</a></li>
-    </ul>
-
-  In particular, we estimated the following parameters for the mirror and source:
-
-  <ul>
-    <li> mirror height = 1.4592m </li>
-    <li> mirror tilt = 44.7743 deg</li>
-    <li> mirror roll = 0.1054 deg</li>
-    <li> source height = 8.9717m </li>
-    <li> source distance = 195.5 m </li>
-    <li> source azimuth = -177.5938 deg </li>
-  </ul>
-
-  Once source and mirror positions are established, we can proceed with the rest of the analysis, using the RPS modulation curve to determine
-  individual detectors polarisation angles. However, these results are subjected to various systematic effects, that we try to understand so 
-  that we can estimate their impact, and minimise them for future observations.
-  </p>
-
-
   <h3 id=syst>Systematic errors</h3>
 
   <p>
@@ -324,7 +279,7 @@
 
 
 
-    <h4>Beam fit residuals</h4>
+    <h4 id="beamfits">Beam fit residuals</h4>
   <p>When fitting for beam parameters in raw mount coordinates, we noticed residuals at the level of 5-10%, as shown below. 
     We tentatively identified it as amplitide dependent noise coming from the demodulation routine, something that also been 
     identified in FFBM measurement campaigns.<br><br>
@@ -350,9 +305,66 @@
   </p>
 
 
-  <h4>Residuals in reconstructed RPS beam centers</h4>
+  <h4 id="residuals">Residuals in reconstructed RPS beam centers</h4>
 
-  <p>
+    <h5>Quick Review of Mirror/Source Analysis</h5>
+    <p>
+        RPS measurements for BICEP3 were taken in January 2017 and 2018, with the mirror installed. To derive individual
+        detector polarisation angles, it is crucial to first build a reliable pointing model that includes the mirror,
+        and to know the source and mirror position with respect to the telescope with a very good precision. While working
+        on RPS data analysis, we made some changes in the Beam Map Pointing Model (BMPM) we use to analyse RPS data, as
+        presented in <a href="JCV2021"></a>. <br><br>
+
+        To determine the position of the mirror and the source, the best way to proceed is to first observe the Moon with
+        the mirror on, allowing to determine first the mirror position, and then the source. However, no Moon observations
+        with the mirror on were taken in 2017. It is still possible to determine the source and mirror position by using data taken
+        in 2017, but the derived positions suffer from higher uncertainties. In our SPIE paper <a href="JAC2020"></a>,
+        we presented the results he obtained using RPS data taken in January 2018 - polarisation angles and efficiency for
+        800 detector pairs. <br><br>
+
+        We have since then re-analysed RPS data with a different method to estimate source and mirror positions.
+        In this updated method, we estimate beam parameters in raw mount coordinates (before applying any pointing model), and then
+        estimate source and mirror positions. To do so, we minimise the difference between beam coordinates derived from RPS observation
+        using the (updated) BMPM, and "canonical" beam parameters from CMB observations. This analysis is summarised in the simplified flow
+        chart in the figure below.
+
+        <figure>
+            <img src="figs/rps_data_flow_chart.png"/>
+            <figcaption>
+                Simplified analysis flow chart to get source and mirror parameters from RPS data.
+            </figcaption>
+        </figure>
+
+
+        This work is described in various postings:
+
+    <ul>
+        <li> <a href=http://bicep.rc.fas.harvard.edu/jcornelison/postings/2021mmdd_rps_moon_reanalysis/>
+            Mirror parameters in 2017 and 2018</a></li>
+        <li><a href= http://bicep.rc.fas.harvard.edu/cverges/20210105_pa_reconstruction/>
+            Mirror and source parameters in 2018 - I: Methods and preliminary results</a></li>
+        <li> <a href=http://bicep.rc.fas.harvard.edu/cverges/20210604_pa_reconstruction_2/>
+            Mirror and source parameters in 2018 - II: Results with updated pointing model & Residuals</a></li>
+    </ul>
+
+    In particular, we estimated the following parameters for the mirror and source:
+
+    <ul>
+        <li> mirror height = 1.4592m </li>
+        <li> mirror tilt = 44.7743 deg</li>
+        <li> mirror roll = 0.1054 deg</li>
+        <li> source height = 8.9717m </li>
+        <li> source distance = 195.5 m </li>
+        <li> source azimuth = -177.5938 deg </li>
+    </ul>
+
+    Once source and mirror positions are established, we can proceed with the rest of the analysis, using the RPS modulation curve to determine
+    individual detectors polarisation angles. However, these results are subjected to various systematic effects, that we try to understand so
+    that we can estimate their impact, and minimise them for future observations.
+    </p>
+
+
+    <p>
   As said previously, our method to estimate the source and mirror positions relies on matching beam centers derived from RPS
   measurements using the BMPM, with the CMB derived beam centers (see Figure 1.1). Ideally, the two sets of beam centers should be 
   identical after estimating the optimal source and mirror parameters. However, we observe a pattern of residuals that we try to 
@@ -383,9 +395,9 @@
         as reference also yields to different mirror roll angle (up to ~0.04 deg difference)</li>
     </ul>
 
-    Although these differences look small, they still represent 30%-40% differences given the expected mirror roll parameter (which
-    is about 0.10 deg). However, based on systematic errors propagation. we don't expect these errors on the mirror roll to have a 
-    very significant impact on the final results. Nevertheless, we propose to modify the RPS calibration schedule to try and avoid this 
+    <!--Although these differences look small, they still represent 30%-40% differences given the expected mirror roll parameter (which
+    is about 0.10 deg).-->
+    Based on a primitive systematic error propagation. we estimate this to translate into $\sigma_\phi\sim0.05^o$. Which is a sizeable portion of our error budget. Therefore, we intend to modify the RPS calibration schedule to either mitigate or better understand this
     source of residuals.
   </p>
 
@@ -428,7 +440,7 @@
 
   </p>
 
-  <h4>Measurement repeatability</h4>
+  <h4 id="repeat">Measurement repeatability</h4>
 
   <p> In 2018, two RPS data sets were taken at dk 45 - a complete and a partial one. Using only detectors that have measurements
     in the two data sets, we have shown that while measurement repeatablity is overall good. As detailed in
@@ -443,7 +455,19 @@
 
 <section><h2 id=plan>Calibration Plan</h2>
 
-<h3 id=checks>Additional cross-checks</h3>
+
+    <h3 id=schedule>Calibration schedule</h3>
+
+    <p> We propose <a href=https://docs.google.com/spreadsheets/d/10NAoifVl0Y2dxdlx_JSGmlcqxI2pSLf0GLOCBm8ZmdA/edit?usp=sharing>
+        a calibration schedule</a> for the austral summer 2021-2022, with an observing strategy
+        that takes into accounts the systematic effects we have identified. We have added a number of new and
+        (sometimes) redundant observations, in order to minimise systematic effects and maximise data quality.
+        We have ranked all the tasks we propose by priority (necessary, medium and low), so that this plan
+        can be adapted/shortened depending on available time.
+    </p>
+
+
+    <h3 id=checks>Additional cross-checks</h3>
     <h4>RPS Angle Checker</h4>
     <p>
         We're currently building a simple room-temperature W-band receiver which will serve as a completely independent and redundant check of the RPS's polarization orientation during observations. The plan is to have this receiver placed on the roof of DSL as close as possible to BICEP3 with a line-of-site to the RPS, feeding the receiver output (and possibly tilt/thermometry) to GCP. This data will be analyzed alongside the regular bolometer data with the idea being that the polarization properties of the angle checker (which shall be known <i>a priori</i> to high precision and tracked throughout) would be estimated during every rasterset, allowing us to track the RPS polarization angle throughout all of our observations.
