@@ -26,7 +26,7 @@
 <link rel="stylesheet" type="text/css" href="scripts/pager.css">
 
 <header>
-    <h1>RPS Summary and Austral summer 2021/2022 Calibration Plan</h1>
+    <h1>RPS Summary and Austral Summer 2021/2022 Calibration Plan</h1>
 
     <time datetime="2021 08 24" class="published updated">
         2021 08 24
@@ -36,7 +36,13 @@
 
 <hr>
 
-<p> RPS (Rotating Polarised Source) observations are used to characterise individual detector properties,
+<p>
+
+    In this posting, we first summarise our previous work, and then propose an RPS calibration plan for the coming austral
+    summer, building on the experience we have gained - both in terms of field calibration and data analysis - to optimise
+    the measurement campaign and make sure we have the best possible measurements.
+<br><br>
+    RPS (Rotating Polarised Source) observations are used to characterise individual detector properties,
   namely efficiency and polarisation angle. The knowledge of the exact polarisation angle of
   each detector is not necessary for standard B-modes analysis. However, we need to know it with a very 
   high precision if we want to be able to constraint isotropic cosmic birefringence, since the global
@@ -51,17 +57,15 @@
   currently have, but the precision of these results could be significantly improved by taking new data.
   <br><br>
   
-  In this posting, we first summarise our previous work, and then propose an RPS calibration plan for the coming austral 
-  summer, building on the experience we have gained - both in terms of field calibration and data analysis - to optimise 
-  the measurement campaign and make sure we have the best possible measurements. 
+
 </p>
 
 <hr>
 
 <h3>Table of Contents</h3>
-<ol type="I">
+<ol type="1">
   <li><a href="#motivation">Motivation</a></li>
-    <ol type="i">
+    <ol type="1">
 
       <li><a href="#SOA">State of the Art</a></li>
       <li><a href="#previous">Review of 2017/2018 Results</a></li>
@@ -69,9 +73,15 @@
 
     </ol>
   <li><a href="#plan">Calibration Plan</a></li>
-    <ol type ="i">
+    <ol type ="1">
       <li><a href="#checks">RPS improvements and cross-checks</a></li>
       <li><a href="#schedule">Calibration schedule</a></li>
+    </ol>
+</ol>
+<ol type="A">
+    <li><a href="#app">Appendix</a></li>
+    <ol type ="1">
+        <li><a href="#refs">References</a></li>
     </ol>
 </ol>
 
@@ -84,7 +94,7 @@
             <th>Experiment</th>
             <th>Frequency (GHz)</th>
             <th>$\ell$ range</th>
-            <th>$\alpha\pm(\text{stat})\pm(\text{sys})$</th>
+            <th>$\alpha\pm\text{stat}(\pm\text{sys})$</th>
             <th>Calibration Method</th>
         </tr>
         <tr>
@@ -175,8 +185,12 @@
         </figcaption>
     </figure>
     <p>
-    A majority of this table comes from James's SPIE paper <a href="JAC2020"></a>, but now includes the Minami & Komatsu result <a href="Minami2020"></a>.
+    A majority of this table comes from James's SPIE paper <a href="JAC2020"></a>, but now includes the Minami & Komatsu result <a href="Minami2020"></a>. There are two primary takeaways from the table above. First, the latest two birefringence results from ACTPol and Minami & Komatsu are in tension. Second, both results have statistical precision of $\mathcal{O}(0.1^o)$, but neither report systematic errors so perhaps the first point isn't surprising. Regardless, this provides an important opportunity for us as we can not only aim to report our own competitive birefringence constraints, but also break the tension in either direction.
 </p>
+    <p>
+        When we made our RPS observations in early 2018, we set a total precision goal of the measured per-pair polarization angle, $\phi_{pair}$, of $\sigma_\phi<0.1^o$ which, compared to the most recent reported values from other experiments, is still competitive. In the 2020 SPIE paper, we reported a total relative angle of $\sigma_{\phi_{pair}}$ equivalent to $0.083^o$, but we were still working out the systematics of the absolute angle at the time. As we'll show below, our current best on the absolute value is about an order of magnitude greater, but we believe we can achieve the $\sigma_{\phi_{pair}}<0.1^o$ in absolute terms by applying our lessons-learned to a new dataset which will be taken this 2021/2022 austral summer.
+    </p>
+
 
   <h3 id=previous>Review of 2017/2018 Result</h3>
   <p>
@@ -184,13 +198,13 @@
     detector polarisation angles, it is crucial to first build a reliable pointing model that includes the mirror,
     and to know the source and mirror position with respect to the telescope with a very good precision. While working
     on RPS data analysis, we made some changes in the Beam Map Pointing Model (BMPM) we use to analyse RPS data, as 
-    presented in <a href=http://bicep.rc.fas.harvard.edu/bkcmb/analysis_logbook/analysis/20210518_bmpm/> this posting</a>. <br><br>
+    presented in <a href="JCV2021"></a>. <br><br>
 
     To determine the position of the mirror and the source, the best way to proceed is to first observe the Moon with
     the mirror on, allowing to determine first the mirror position, and then the source. However, no Moon observations
     with the mirror on were taken in 2017. It is still possible to determine the source and mirror position by using data taken 
-    in 2017, but the derived positions suffer from higher uncertainties. In his SPIE paper <a href="JAC2020"></a>,
-    James presented the results he obtained using RPS data taken in January 2018 - polarisation angles and efficiency for
+    in 2017, but the derived positions suffer from higher uncertainties. In our SPIE paper <a href="JAC2020"></a>,
+    we presented the results he obtained using RPS data taken in January 2018 - polarisation angles and efficiency for
     800 detector pairs. <br><br>
 
     We have since then re-analysed RPS data with a different method to estimate source and mirror positions.
@@ -240,117 +254,12 @@
   <p>
     While analysing RPS data, we were confronted to various sources of systematic effects. As we updated the pointing model
     and used a different approach to estimate source and mirror parameters, we have been able to reduce some of these systematic
-    uncertainties. We have summarised the known systematic uncertainties and their impact on the final measurement (detector 
+    uncertainties. We have summarised a large number of possible systematic sources and their impact on the final measurement (detector
     polarisation angles) in <a href=https://docs.google.com/document/d/1DOEh3FIKXNf_MWC2YDoNQKWCEjYWp-B79q_PvZ6CGsU/edit?usp=sharing>
-    this document</a>. In most cases, the remaining uncertainties are very small and yield to a limited bias on the polarisation 
-    angle. However, a few sources of uncertainties require further attention, as they have a greater impact and/or their control
-    could be improved if we take new data.
+    this document</a>. In most cases, these uncertainties are very small and yield to a limited bias on the polarisation
+    angle. However, a few sources of uncertainties dominate our error budget and require further attention -- the two most notable being from RF coupling to the tilt meter which provides real-time tracking of the orientation of the RPS and from propagation of error from moon observations (or a lack thereof, rather) which are used to constrain the position/orientation of the mirror in absolute terms.
   </p>
 
-  <h4>Beam fit residuals</h4>
-  <p>When fitting for beam parameters in raw mount coordinates, we noticed residuals at the level of 5-10%, as shown below. 
-    We tentatively identified it as amplitide dependent noise coming from the demodulation routine, something that also been 
-    identified in FFBM measurement campaigns.<br><br>
-
-    <figure>
-      <img src="figs/res_channel_2385.png" width="100%">
-      <figcaption>
-        Amplitude-dependent residuals seen after Gaussian beam fit on RPS observations.
-      </figcaption>
-  </figure>
-
-  While we are not sure this effect actually comes from demodulation, we know that slower chop rates lead to less noise in 
-  demodulated data, because there are more sample to average over for a given chop cycle. However, a higher chop rate allows 
-  for more samples of the beam per unit time, and a better background rejection. In 2017, data was taken with a chop rate 
-  of 10 GHz and 20 GHz, while in 2018 it was only taken at 20Hz. We are currently comparing data at 10Hz and 20Hz taken in 
-  2017, to see if we can learn learn anything from having different chop rates, in particular if the lower chop rates effectively 
-  reduces the post-beam fit residuals. <br><br>
-
-  In any case, as we don't have a lot of good quality data from 2017 and therefore probably can't learn much from that, we plan 
-  to take data at various chop rates (likely 10-15-20Hz) for this campaign so that we can better estimate and quantify systematics
-  that are associated with various chop rates.
-
-  </p>
-
-
-  <h4>Residuals in reconstructed RPS beam centers</h4>
-
-  <p>
-  As said previously, our method to estimate the source and mirror positions relies on matching beam centers derived from RPS
-  measurements using the BMPM, with the CMB derived beam centers (see Figure 1.1). Ideally, the two sets of beam centers should be 
-  identical after estimating the optimal source and mirror parameters. However, we observe a pattern of residuals that we try to 
-  characterise and understand, as shown in Figure 1.4 below, and detailed in <a href=http://bicep.rc.fas.harvard.edu/cverges/20210604_pa_reconstruction_2/>
-  this posting</a>. <br><br>
-
-  <figure>
-    <img src="figs/residuals_10times_all_dk_roll_tilt_az.png" width="100%">
-    <figcaption>
-      Typical residual pattern (x10) between RPS-derived and CMB-derived beam centers, in focal plane coordinates.
-    </figcaption>
-</figure>
-
-</p>
-
-  <h5>Deck-dependent residuals</h5>
-  <p> 
-    RPS data and CMB data are taken at different dk angles (0/45/90/135 vs 23/68/203/248), and CMB data is taken without 
-    the mirror on (i.e. the pointing model is different), and at a different time of the year. While this shouldn't have any impact,
-    we might suffer from various systematic effects, due to e.g the mirror, or gravitational flexture at different dk angles (as hinted 
-    by Justin in his <a href=http://bicep.rc.fas.harvard.edu/bkcmb/analysis_logbook/analysis/20181207_B2018_beamcen/>CMB beam centers 
-    posting</a>.
-
-    In particular, we observe dk dependent residuals and show that:
-
-    <ul>
-      <li>RPS data at different dk angles yield to different mirror roll angle (up to ~0.03 deg difference)</li>
-      <li>For a given RPS data set at one dk angle, using CMB derived beam centers at different dk angles 
-        as reference also yields to different mirror roll angle (up to ~0.04 deg difference)</li>
-    </ul>
-
-    Although these differences look small, they still represent 30%-40% differences given the expected mirror roll parameter (which
-    is about 0.10 deg). However, based on systematic errors propagation. we don't expect these errors on the mirror roll to have a 
-    very significant impact on the final results. Nevertheless, we propose to modify the RPS calibration schedule to try and avoid this 
-    source of residuals.
-  </p>
-
-  <h5>RPS orientation</h5>
-  <p>
-    In previous calibration campaigns, the RPS was rotating from -180deg to 180 with respect to gravity, whatever
-    the deck angle of the instrument. This setup is convenient because it allows to maximise detector response
-    for dk 0/90, however for dk 45/135 detectors don't reach their peak response at any point in the RPS modulation 
-    curve. This can lead to uncertainties in the determination of the beam centers, that contributes to dk-dependent
-    residuals that we see. We therefore propose to tilt the RPS with respect to the dk angle and not with respect to
-    gravity, so that the modulation curve can be effectively maximal for each dk angle. However, this could induce a
-    new systematic contribution since the RPS orientation would be different for each schedule - we would therefore 
-    need to have an estimation of this effect.
-  </p>
-
-  <p> To address these sources of residuals, we propose to adapt the dk angles used for RPS observation as well as the RPS
-    orientation, as detailled in the <a href=#schedule>calibration schedule</a>.
-  </p>
-
-  <h5>Mirror-related residuals?</h5>
-
-  <p>
-    We also investigated the hypothesis that the residuals could arise from mirror systematics, such as small deformations
-    in the mirror. If this was case, we should have residuals that are the same for Moon and RPS observations in 2017 
-    (in 2018 we don't have Moon observations to compare to), or residuals that corresponds to a specific position on the mirror
-    once the dk angle rotation is corrected. However, we couldn't detect any mirror-related pattern in dk dependent residuals, 
-    as shown for example in Figure 1.5 below.
-
-    <figure>
-      <tr>
-          <td><img src="figs/residuals_10times_mirror.png"/></td>
-      </tr>
-      <figcaption>
-          Dk-dependent residuals (x10) projected in mirror coordinates. 
-      </figcaption>
-  </figure>
-
-  We have also estimated the mirror differential polarisation to be very small and not a significant source of systematic
-  error, as detailed iin <a href=http://bicep.rc.fas.harvard.edu/jcornelison/postings/2019mmdd_rps_reflection_polarization/>this posting</a>.
-
-  </p>
 
     <h4 id="tiltmeter">Tilt Meter High-F Coupling</h4>
 
@@ -380,7 +289,7 @@
 
     <p>At the most pessimistic, we can take the min and max deviation from the moving-stage DC offset and call that the upper limit on the systematic uncertainty of the relative calibration. This comes out to $\pm0.09^o$.</p>
 
-    <p>Ideally, this also allows us to directly subtract the relative angle deviations to further long-timescale scattering during the analysis downstream.</p>
+    <p>Ideally, this also allows us to directly subtract the relative angle deviations to further long-timescale scattering during the analysis downstream which will get us to less than that, but that feature still needs to be implemented into the analysis.</p>
 
     <h5>Pol Angle Abs Cal</h5>
     Unfortunately, the amplitude of the DC-offset-while-moving is dependent entirely on the circuitry as it was set up during the RPS campaign, so we can only establish rough upper limits. The maximum recorded offset was $~0.25^o$ and evidence suggests that the DC offset can swing equally in either direction. In the most pessimistic scenario, I calibrated the tilt meter at one extreme and then leveled the mast at the other which gives us an upper limit of $0.5^o$, which easily dominates any other source of systematics.
@@ -413,11 +322,117 @@
 
     <p>Where $H_{mast}$ is the height of the mast from its pivot point (i.e. just the roof of MAPO) and $D_src$ is the distance from BICEP3 to the source, which are both known to be $H_{mast}=12\text{m}$ and $D_{src}=195.5\text{m}$. This gives us $\sigma_{Az} = \pm0.005^o$ which is currently subdominant to other systematics.</p>
 
+
+
+    <h4>Beam fit residuals</h4>
+  <p>When fitting for beam parameters in raw mount coordinates, we noticed residuals at the level of 5-10%, as shown below. 
+    We tentatively identified it as amplitide dependent noise coming from the demodulation routine, something that also been 
+    identified in FFBM measurement campaigns.<br><br>
+
+    <figure>
+      <img src="figs/res_channel_2385.png" width="100%">
+      <figcaption>
+        Amplitude-dependent residuals seen after Gaussian beam fit on RPS observations.
+      </figcaption>
+  </figure>
+
+  While we are not sure this effect actually comes from demodulation, we know that slower chop rates lead to less noise in 
+  demodulated data, because there are more sample to average over for a given chop cycle. However, a higher chop rate allows 
+  for more samples of the beam per unit time, and a better background rejection. In 2017, data was taken with a chop rate 
+  of 10 GHz and 20 GHz, while in 2018 it was only taken at 20Hz. We are currently comparing data at 10Hz and 20Hz taken in 
+  2017, to see if we can learn learn anything from having different chop rates, in particular if the lower chop rates effectively 
+  reduces the post-beam fit residuals. <br><br>
+
+  In any case, as we don't have a lot of good quality data from 2017 and therefore probably can't learn much from that, we plan 
+  to take data at various chop rates (likely 10-15-20Hz) for this campaign so that we can better estimate and quantify systematics
+  that are associated with various chop rates.
+
+  </p>
+
+
+  <h4>Residuals in reconstructed RPS beam centers</h4>
+
+  <p>
+  As said previously, our method to estimate the source and mirror positions relies on matching beam centers derived from RPS
+  measurements using the BMPM, with the CMB derived beam centers (see Figure 1.1). Ideally, the two sets of beam centers should be 
+  identical after estimating the optimal source and mirror parameters. However, we observe a pattern of residuals that we try to 
+  characterise and understand, as shown in Figure 1.4 below, and detailed in <a href="CV2021">
+  </a>. <br><br>
+
+  <figure>
+    <img src="figs/residuals_10times_all_dk_roll_tilt_az.png" width="100%">
+    <figcaption>
+      Typical residual pattern (x10) between RPS-derived and CMB-derived beam centers, in focal plane coordinates.
+    </figcaption>
+</figure>
+
+</p>
+
+  <h5>Deck-dependent residuals</h5>
+  <p> 
+    RPS data and CMB data are taken at different dk angles (0/45/90/135 vs 23/68/203/248), and CMB data is taken without 
+    the mirror on (i.e. the pointing model is different), and at a different time of the year. While this shouldn't have any impact,
+    we might suffer from various systematic effects, due to e.g the mirror, or gravitational flexture at different dk angles (as hinted 
+    by Justin in <a href="JWB2018"></a>.
+
+    In particular, we observe dk dependent residuals and show that:
+
+    <ul>
+      <li>RPS data at different dk angles yield to different mirror roll angle (up to ~0.03 deg difference)</li>
+      <li>For a given RPS data set at one dk angle, using CMB derived beam centers at different dk angles 
+        as reference also yields to different mirror roll angle (up to ~0.04 deg difference)</li>
+    </ul>
+
+    Although these differences look small, they still represent 30%-40% differences given the expected mirror roll parameter (which
+    is about 0.10 deg). However, based on systematic errors propagation. we don't expect these errors on the mirror roll to have a 
+    very significant impact on the final results. Nevertheless, we propose to modify the RPS calibration schedule to try and avoid this 
+    source of residuals.
+  </p>
+
+  <h5>RPS orientation</h5>
+  <p>
+    In previous calibration campaigns, the RPS was rotating from -180deg to 180 with respect to gravity, whatever
+    the deck angle of the instrument. This setup is convenient because it allows to maximise detector response
+    for dk 0/90, however for dk 45/135 detectors don't reach their peak response at any point in the RPS modulation 
+    curve. This can lead to uncertainties in the determination of the beam centers, that contributes to dk-dependent
+    residuals that we see. We therefore propose to tilt the RPS with respect to the dk angle and not with respect to
+    gravity, so that the modulation curve can be effectively maximal for each dk angle. However, this could induce a
+    new systematic contribution since the RPS orientation would be different for each schedule - we would therefore 
+    need to have an estimation of this effect.
+  </p>
+
+  <p> To address these sources of residuals, we propose to adapt the dk angles used for RPS observation as well as the RPS
+    orientation, as detailed in the <a href=#schedule>calibration schedule</a>.
+  </p>
+
+  <h5>Mirror-related residuals?</h5>
+
+  <p>
+    We also investigated the hypothesis that the residuals could arise from mirror systematics, such as small deformations
+    in the mirror. If this was case, we should have residuals that are the same for Moon and RPS observations in 2017 
+    (in 2018 we don't have Moon observations to compare to), or residuals that corresponds to a specific position on the mirror
+    once the dk angle rotation is corrected. However, we couldn't detect any mirror-related pattern in dk dependent residuals, 
+    as shown for example in Figure 1.5 below.
+
+    <figure>
+      <tr>
+          <td><img src="figs/residuals_10times_mirror.png"/></td>
+      </tr>
+      <figcaption>
+          Dk-dependent residuals (x10) projected in mirror coordinates. 
+      </figcaption>
+  </figure>
+
+  We have also estimated the mirror differential polarisation to be very small and not a significant source of systematic
+  error, as detailed iin <a href="JAC2021"></a>.
+
+  </p>
+
   <h4>Measurement repeatability</h4>
 
   <p> In 2018, two RPS data sets were taken at dk 45 - a complete and a partial one. Using only detectors that have measurements
-    in the two data sets, we have shown that while measurement repeatablity is overall good. As detailled in 
-    <a href=http://bicep.rc.fas.harvard.edu/cverges/20210604_pa_reconstruction_2 >this posting</a>, the estimation of the mirror roll 
+    in the two data sets, we have shown that while measurement repeatablity is overall good. As detailed in
+    <a href="CV2021" ></a>, the estimation of the mirror roll
     parameter changes by ~9% between the two dk 45 data sets. We believe that this variability is likely due to external factors affecting 
     the source and/or mirror position (mast swaying, sun, etc.). Again, we estimate that these effects would have a limited impact 
     on the final measurement, but we still need to have an estimation of measurement repeatability so that we can correctly propagate
@@ -486,8 +501,9 @@
 
 <hr>
 
-   <section class="appendix">
-<h3>References</h3>
+<section class="appendix">
+    <h2 id="app">Appendix</h2>
+<h3 id="refs">References</h3>
 
 <p id="references"></p>
 
@@ -530,25 +546,37 @@
 
     // Shorthand tags
     var tags = [
+        "JWB2018",
         "Minami2020",
         "Dunner2020",
         "JAC2020",
+        "JCV2021",
+        "CV2021",
+        "JAC2021",
     ];
 
     // Links
     // Truncate the link down to the www directory in which is lies if you can.
     var hrefs = [
+        "bkcmb/analysis_logbook/analysis/20181207_B2018_beamcen/",
         "https://arxiv.org/pdf/2011.11254.pdf",
         "https://www.youtube.com/watch?v=7FA274kr5-s&list=PLmXdKmtgaCcFHtNZkjhPWa6oPuPcugHDg&index=50&ab_channel=SeminarKavliIPMU",
         "https://arxiv.org/pdf/2012.05934.pdf",
+        "bkcmb/analysis_logbook/analysis/20210518_bmpm/",
+        "cverges/20210604_pa_reconstruction_2/",
+        "jcornelison/postings/2019mmdd_rps_reflection_polarization/"
     ];
 
 
     // Posting titles
     var desc = [
+        "B2016, B2017, and B2018 CMB-derived beam center correlations",
         "New Extraction of the Cosmic Birefringence from the Planck 2018 Polarization Data",
         "Drone-Based Polarization Calibration Source for MM-Wave Telescopes",
         "Polarization Calibration of the BICEP3 CMB polarimeter at the South Pole",
+        "A New Pointing Model for Beam Mapping",
+        "Polarisation angle reconstruction II: mirror/source parameters",
+        "Systematics from Differential Reflection of Polarization from the FFFlat",
     ];
     // Debug
     var posty = document.getElementById("testp");
